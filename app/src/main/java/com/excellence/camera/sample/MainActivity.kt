@@ -11,16 +11,17 @@ import com.excellence.camera.library.BaseCameraPreviewActivity
 
 class MainActivity : AppCompatActivity() {
 
-    private val activityLauncher: ActivityResultLauncher<Intent> by lazy {
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            val picture = result?.data?.getStringExtra(BaseCameraPreviewActivity.EXTRA_PIC)
-            Toast.makeText(this, "拍照路径:$picture", Toast.LENGTH_SHORT).show()
-        }
-    }
+    private lateinit var activityLauncher: ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
+
+        activityLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                val picture = result?.data?.getStringExtra(BaseCameraPreviewActivity.EXTRA_PIC)
+                Toast.makeText(this, "拍照路径:$picture", Toast.LENGTH_SHORT).show()
+            }
     }
 
     fun startCamera(v: View) {
