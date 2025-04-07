@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <com.serenegiant.widget.AspectRatioTextureView
+        android:id="@+id/viewMainPreview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_centerInParent="true"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/tvConnectUSBCameraTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="请连接USB摄像头"
+        android:textColor="@color/white"
+        android:textSize="18dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/devicePicture"
+            style="@style/MainFloatingActionButton"
+            android:src="@drawable/ic_action_device"
+            android:visibility="invisible"
+            tools:visibility="visible" />
+
+        <ImageButton
+            android:id="@+id/galleryPicture"
+            style="@style/MainFloatingActionButton"
+            android:src="@drawable/ic_no_picture" />
+
+        <ImageButton
+            android:id="@+id/fabPicture"
+            style="@style/MainFloatingActionButton"
+            android:src="@drawable/ic_action_camera"
+            android:visibility="invisible"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+</RelativeLayout>

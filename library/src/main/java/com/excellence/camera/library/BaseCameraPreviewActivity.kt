@@ -93,7 +93,6 @@ abstract class BaseCameraPreviewActivity : AppCompatActivity() {
         setContentView(getLayoutId())
 
         init()
-        requestCamera()
     }
 
     protected fun takePicture() {
@@ -252,7 +251,7 @@ abstract class BaseCameraPreviewActivity : AppCompatActivity() {
     protected abstract fun requestCamera()
 
     protected open fun init() {
-
+        requestCamera()
     }
 
     /**

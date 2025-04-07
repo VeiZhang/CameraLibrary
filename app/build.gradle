@@ -63,4 +63,8 @@ dependencies {
     implementation("androidx.camera:camera-lifecycle:1.1.0-beta02")
     implementation("androidx.camera:camera-view:1.1.0-beta02")
     implementation("androidx.camera:camera-extensions:1.1.0-beta02")
+
+    // UsbCamera
+    // https://github.com/shiyinghan/UVCAndroid
+    implementation("com.herohan:UVCAndroid:1.0.5")
 }

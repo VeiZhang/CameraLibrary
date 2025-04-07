@@ -24,6 +24,7 @@
 
 
         <activity android:name=".CameraPreviewActivity" />
+        <activity android:name=".UvcActivity" />
 
         <activity android:name=".GalleryActivity" />
 

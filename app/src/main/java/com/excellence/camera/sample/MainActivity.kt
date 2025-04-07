@@ -31,6 +31,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun startUsbCamera(v: View) {
-
+        activityLauncher.launch(Intent(this, UvcActivity::class.java))
     }
 }

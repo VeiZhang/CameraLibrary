@@ -41,6 +41,8 @@ class CameraPreviewActivity : BaseCameraPreviewActivity() {
     override fun getLayoutId(): Int = R.layout.libs_ability_activity_camera_preview
 
     protected override fun init() {
+        super.init()
+
         previewView = findViewById(R.id.preview_view)
         fabPicture = findViewById(R.id.fabPicture)
         devicePicture = findViewById(R.id.devicePicture)
