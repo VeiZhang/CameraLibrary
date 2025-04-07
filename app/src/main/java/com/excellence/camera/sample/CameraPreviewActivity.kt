@@ -82,7 +82,7 @@ class CameraPreviewActivity : BaseCameraPreviewActivity() {
         }
 
         galleryPicture.setOnClickListener {
-//            activityLauncher.launch(Intent(this, GalleryActivity::class.java))
+            activityLauncher.launch(Intent(this, GalleryActivity::class.java))
         }
     }
 
@@ -109,16 +109,16 @@ class CameraPreviewActivity : BaseCameraPreviewActivity() {
     override fun resumeCameraView() {
         super.resumeCameraView()
 
-//        val mediaList = GalleryActivity.getMedia(getCameraPictureStorageDir())
-//        if (mediaList.isNotEmpty()) {
-//            Glide.with(this).load(mediaList[0].path)
-//                .apply(RequestOptions().circleCrop())
-//                .placeholder(R.drawable.ic_no_picture)
-//                .error(R.drawable.ic_no_picture)
-//                .into(galleryPicture)
-//        } else {
-//            galleryPicture.setImageResource(R.drawable.ic_no_picture)
-//        }
+        val mediaList = GalleryActivity.getMedia(getDefaultCameraPictureStorageDir())
+        if (mediaList.isNotEmpty()) {
+            Glide.with(this).load(mediaList[0].path)
+                .apply(RequestOptions().circleCrop())
+                .placeholder(R.drawable.ic_no_picture)
+                .error(R.drawable.ic_no_picture)
+                .into(galleryPicture)
+        } else {
+            galleryPicture.setImageResource(R.drawable.ic_no_picture)
+        }
     }
 
     override fun notifyCameraInfo(cameraInfoList: List<CameraInfo>) {

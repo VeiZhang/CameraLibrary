@@ -25,6 +25,8 @@
 
         <activity android:name=".CameraPreviewActivity" />
 
+        <activity android:name=".GalleryActivity" />
+
     </application>
 
 </manifest>
