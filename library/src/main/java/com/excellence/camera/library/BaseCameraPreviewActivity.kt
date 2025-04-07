@@ -9,7 +9,6 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.util.Size
-import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -47,24 +46,24 @@ abstract class BaseCameraPreviewActivity : AppCompatActivity() {
         private val FORMAT_DATE = SimpleDateFormat("yyyyMMdd")
         private val FORMAT_TIME = SimpleDateFormat("yyyy-MM-dd-HH-mm-ss")
 
-        fun getCameraPictureStorageDir(): File {
+        fun getDefaultCameraPictureStorageDir(): File {
 //            val dir = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-//                // DCIM/PosCamera/
-//                "${Environment.DIRECTORY_DCIM}/PosCamera/"
+//                // DCIM/camera/
+//                "${Environment.DIRECTORY_DCIM}/camera/"
 //            } else {
-//                // /storage/emulated/0/Android/data/com.lyy.site.cashier.sit/files/DCIM/PosCamera/
-//                "${context.getExternalFilesDir(Environment.DIRECTORY_DCIM)}/PosCamera/"
+//                // /storage/emulated/0/Android/data/com.lyy.site.cashier.sit/files/DCIM/camera/
+//                "${context.getExternalFilesDir(Environment.DIRECTORY_DCIM)}/camera/"
 //                // Environment.getExternalStorageDirectory()报错
-//                "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)}/PosCamera/"
+//                "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)}/camera/"
 //            }
 
             val dir =
-                "${Environment.getExternalStorageDirectory()}/${Environment.DIRECTORY_DCIM}/PosCamera/"
+                "${Environment.getExternalStorageDirectory()}/${Environment.DIRECTORY_DCIM}/camera/"
             return File(dir)
         }
 
-        fun getCameraPictureStorageFile(): File {
-            val dir = getCameraPictureStorageDir()
+        fun getDefaultCameraPictureStorageFile(): File {
+            val dir = getDefaultCameraPictureStorageDir()
 
             val yyyyMMdd = FORMAT_DATE.format(Date())
             val cameraDir = File(dir, yyyyMMdd)
@@ -214,6 +213,13 @@ abstract class BaseCameraPreviewActivity : AppCompatActivity() {
     override fun onBackPressed() {
         setResult(RESULT_CANCELED)
         super.onBackPressed()
+    }
+
+    /**
+     * 拍照存储路径
+     */
+    protected open fun getCameraPictureStorageFile(): File {
+        return getDefaultCameraPictureStorageFile()
     }
 
     protected open fun resumeCameraView() {
